@@ -1,0 +1,20 @@
+*{margin:0; padding:0; box-sizing: border-box; }
+li{list-style: none;}
+img{max-width: 100%; vertical-align: top;}
+a{text-decoration: none; color: inherit;}
+table{width:100%; border-collapse: collapse;}
+button{cursor: pointer;}
+body{background: #fff; color:#333}
+
+
+.inner{width: 1200px; margin: auto;}
+
+header{height: 100px; background:#d1ddf5;}
+
+.slide{height: 300px; background: #66a3f1;}
+
+.con{height: 200px; background: #5d7ba3; display: flex;}
+.con article{width: 400px;}
+.con article:nth-child(2){background: #fff;}
+
+footer{height: 100px; background: #6483ac;}
