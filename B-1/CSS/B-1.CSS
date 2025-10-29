@@ -77,9 +77,29 @@ nav>ul>li.on>a{background: #23233b; color: #fff;}
 .gall>ul>li{border:2px solid #23233b;}
 
 
+/* 배너 */
+.con2>h2{background: #2d30b6; color: #fff; width: 300px; padding: 10px 0; font-weight: bold; font-size: 20px; text-align: center;}
+.con2>a{display:block; background: rgba(84, 108, 134, 0.582); padding: 10px; margin: 10px; border-radius: 8px; text-align: center; }
+.con2>a>h2{padding-bottom: 15px;}
+.con2>a>h2>span{color: #f70505;}
+.con2>a>p{font-weight: bold; font-size: 18px;}
+
+
+/*바로가기*/
+.con3>h2{background: #33406b; color: #fff; width: 300px; padding: 10px 0; font-weight: bold; font-size: 20px; text-align: center;}
+.con3>ul{display: flex;justify-content: space-evenly;}
+.con3>ul>li{padding: 15px; text-align: center; }
+.con3>ul>li>a>p{padding: 15px; background: #305777;border-radius: 15px; margin-bottom: 15px;}
+.con3>ul>li>a>span{font-weight: bold; font-size: 15px;}
+
+
+
+
 
 footer{height: 100px;background:#cfd8f3;}
-footer>.inner{width: 1200px; height: 100%; margin: auto; background: #cfd8f3;}
-
+footer>.inner{width: 1200px; height: 100%; margin: auto; background: #cfd8f3; display: flex; gap: 50px; font-size: 16.5px; color: #09080e; font-weight: bold;}
+footer>.inner>p{padding: 30px;}
+footer>.inner>div>.fmenu{display: flex; gap: 30px; margin-bottom: 15px; margin-top: 20px;}
+footer>.inner>div>.copy{background: #0a1346; width: 450px; text-align: center; padding: 5px; border-radius: 10px; color: #fff;}
 
 
