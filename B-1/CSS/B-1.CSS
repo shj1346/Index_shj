@@ -4,7 +4,7 @@ img{max-width: 100%; vertical-align: top;}
 a{text-decoration: none; color: inherit;}
 table{width:100%; border-collapse: collapse;}
 button{cursor: pointer;}
-body{background: #fff; color:#333}
+body{background: #fff; color:#333; height: 100%;}
 
 
 
@@ -95,11 +95,21 @@ nav>ul>li.on>a{background: #23233b; color: #fff;}
 
 
 
-
+/*푸터*/
 footer{height: 100px;background:#cfd8f3;}
-footer>.inner{width: 1200px; height: 100%; margin: auto; background: #cfd8f3; display: flex; gap: 50px; font-size: 16.5px; color: #09080e; font-weight: bold;}
+footer>.inner{width: 1200px; height: 100%; margin: auto; background: #cfd8f3; display: flex; gap: 50px; font-size: 15px; color: #09080e; font-weight: bold;}
 footer>.inner>p{padding: 30px;}
-footer>.inner>div>.fmenu{display: flex; gap: 30px; margin-bottom: 15px; margin-top: 20px;}
+footer>.inner>div>.fmenu{display: flex; gap: 10px; padding-bottom: 20px; padding-top: 20px;}
 footer>.inner>div>.copy{background: #0a1346; width: 450px; text-align: center; padding: 5px; border-radius: 10px; color: #fff;}
+.fmenu>li>a{ background:  #fff; padding: 5px; border-radius: 15px; padding-left: 10px; padding-right: 10px;border: 2px solid #0a1346;}
+.fmenu>li:hover>a{background: #6798e2; color: #fff;}
 
 
+.popup{background: url(../IMG/popup.png) no-repeat center/cover; width:400px; height: 650px; position: absolute; top: 50%;left: 50%;text-align: center; transform: translate(-50%,-50%); z-index: 50; border-radius: 15px; border: 2px solid #09080e; display: none;}
+.popup>ul>h2{display: block; padding-bottom: 20px;}
+.popup>ul>h2>img{padding: 25px;}
+.popup>ul>h2>span{color: #7c9fe9; padding-top: 15px;}
+.popup>ul> p{font-size: 14x; font-weight: bold; color: #fff;}
+
+.popup button{margin: 20px; background: #134b79; padding: 10px; color: #fff; font-weight: bold; border-radius: 8px;}
+.popup button:hover{background: #fff; color: #333; border: 5px solid #134b79;}

@@ -47,7 +47,7 @@ nav>ul>li.on>a{background: #ceb398; color: #fff;}  /* 메인 메뉴 하단 영�
 
 .con1{position: relative;}
 .con1 .tabmenu{display: flex;}
-.con1 .tabmenu>li{width: 150px;background: #fcf0ea;}
+.con1 .tabmenu>li{width: 200px;background: #e4cdc2;}
 .con1 .tabmenu>li.on{background: #ceb398; color: #fff;}
 .con1 .tabmenu>li>h2>a{display: block; text-align: center; padding: 10px 0; font-weight: bold; font-size: 20px;}
 .con1 .tabcon{position: absolute; left: 0; width: 100%; background: #ceb398; height: 150px;}
@@ -71,12 +71,15 @@ nav>ul>li.on>a{background: #ceb398; color: #fff;}  /* 메인 메뉴 하단 영�
 .con2 p{background: #333; color: #fff; display: inline-block; font-size: 13px; margin-top: 10px; padding: 5px;}
 
 
-.con3{padding: 10px;}
-.con3 h2{color: #ceb398; margin-bottom: 20px;}
+.con3{background: #ceb398;}
+.con3 h2{color: #333; margin-bottom: 20px; background:#e4cdc2; width: 250px; text-align: center; padding: 10px 0; font-weight: bold; font-size: 20px;}
 .con3 ul{display: flex; text-align: center; gap:20px; justify-content: center;}
+.con3>ul>li{border: 2px solid #333; padding: 5px; border-radius: 8px; }
 .con3 ul li a{display: block; height: 100%;}
 .con3 ul li p{width: 80px; height: 80px; background: #ceb398; padding-top: 20px; border-radius: 20px;}
-.con3 ul li span{margin-top: 10px; display: block; font-weight: bold;}
+.con3 ul li span{ display: block; font-weight: bold;}
+.con3 ul li span:hover,
+.con3 ul li span:focus{background: #2b1f1f; color: #fff; border-radius: 8px;}
 
 
 footer{height: 100px; background: #333; color: #ffff; position: relative; padding-top: 25px; padding-left: 40px; display: flex; gap: 40px;}

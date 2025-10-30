@@ -1,200 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>대한은행_B-1과제</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>대한은행_B-1과제</title>
 
-    <link rel="stylesheet" href="CSS/B-1.CSS">
+<link rel="stylesheet" href="CSS/B-1.CSS" />
 
-    <script src="JS/jquery-1.12.3.js"></script>
-    <script src="JS/B-1.JS"></script>
+<script src="JS/jquery-1.12.3.js"></script>
+<script src="JS/B-1.JS"></script>
 </head>
 <body>
-<div class="wrap">
-    
-    <header>
-        <div class="inner"><!--실제 작업 영역-->
-            <h1><a  href="#"><img src="img/logo.png" alt="대한은행"></a></h1>
-            <nav>
-                <ul>
-                    <li><a href="#">개인</a>
-                        <ul class="sub">
+    <div class="wrap">
+        <header>
+            <div class="inner">
+            <!--실제 작업 영역-->
+                <h1>
+                    <a href="#"><img src="img/logo.png" alt="대한은행" /></a>
+                </h1>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#">개인</a>
+                            <ul class="sub">
                             <li><a href="#">조회</a></li>
                             <li><a href="#">이체</a></li>
                             <li><a href="#">공과금</a></li>
                             <li><a href="#">예금/신탁</a></li>
-                        </ul>
-                    </li>
+                            </ul>
+                        </li>
 
-                    <li><a href="#">기업</a>
-                        <ul class="sub">
+                        <li>
+                            <a href="#">기업</a>
+                            <ul class="sub">
                             <li><a href="#">조회</a></li>
                             <li><a href="#">이체</a></li>
                             <li><a href="#">전자결제</a></li>
                             <li><a href="#">수표/어음</a></li>
-                        </ul>
-                    </li>
+                            </ul>
+                        </li>
 
-                    <li><a href="#">금융상품</a>
-                        <ul class="sub">
+                        <li>
+                            <a href="#">금융상품</a>
+                            <ul class="sub">
                             <li><a href="#">저축상품</a></li>
                             <li><a href="#">대출상품</a></li>
                             <li><a href="#">투자상품</a></li>
-                        </ul>
-                    </li>
+                            </ul>
+                        </li>
 
-                    <li><a href="#">카드</a>
-                        <ul class="sub">
+                        <li>
+                            <a href="#">카드</a>
+                            <ul class="sub">
                             <li><a href="#">카드정보</a></li>
                             <li><a href="#">카드신청</a></li>
                             <li><a href="#">이용내역조회</a></li>
-                        </ul>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+
+
+
+        <section class="slide"><!--슬라이드-->
+            <ul>
+                <li class="s1">
+                    <a href="#">
+                        <h2>대한은행과 함께하는<br />ESG 캠핑 이벤트</h2>
+                    </a>
+                </li>
+
+                <li class="s2">
+                    <a href="#">
+                        <h2>스마트 폰으로 언제 어디서나<br />계좌 개설이 가능한 내 손안의은행</h2>
+                    </a>
+                </li>
+
+                <li class="s3">
+                    <a href="#">
+                        <h2>[한정판] 연금리 5% 혜택<br />저희 대한은행과 함께하세요</h2>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+
+
+
+
+        <div class="contents"><!--notice 영역-->
+
+
+            <article class="con1"><!-- 🧱 article : 공지사항과 갤러리를 한 덩어리로 묶은 콘텐츠 구역 -->
+                <ul class="tabmenu"><!-- 📂 ul.tabmenu : 공지사항/갤러리 탭 버튼들을 묶은 리스트 -->
+
+
+                    <li class="on"><!-- 'on' 클래스가 붙은 항목이 현재 활성화된 탭 -->
+                        <h2><a href="#">공지사항</a></h2><!-- h2 : 탭 제목 / a : 클릭 가능한 탭 버튼 -->
+
+                        <section class="notice tabcon"><!-- 📄 section.notice : 공지사항 내용이 표시될 구역 (제이쿼리로 show/hide 예정) -->
+
+                            <ul><!-- 📜 ul : 공지사항 목록 전체를 묶음 -->
+
+                                <li><!-- li : 공지사항 한 줄 (제목 + 날짜) -->
+                                    <a href="#" class="pp">ATM 풀백 카드대출 전면 제한해제 이벤트</a><!-- a : 클릭 시 공지 상세페이지로 이동 -->
+                                    <span class="date">2025-11-12</span><!-- span.date : 오른쪽 날짜 표시 -->
+                                </li>
+
+                                <li>
+                                    <a href="#">금리변경 안내문(2025.10.08)</a>
+                                    <span class="date">2025-10-30</span>
+                                </li>
+
+                                <li>
+                                    <a href="#">NICE평가정보(주)의 시스템 작업으로 인한 일부 대출상품일시중단 안내</a>
+                                    <span class="date">2025-10-28</span>
+                                </li>
+
+                                <li>
+                                    <a href="#">대한은행과 함께하는 '우수 중소기업 탐방' 프로그램 참가안내</a>
+                                    <span class="date">2025-10-17</span>
+                                </li>
+                            </ul>
+                        </section>
+                    </li>
+
+
+                    <li><!-- 📌 갤러리 탭 -->
+                        <h2><a href="#">갤러리</a></h2><!-- h2 : 탭 제목 / a : 클릭 가능한 탭 버튼 -->
+
+                        <section class="gall tabcon"><!-- 📸 section.gall : 갤러리 내용 구역 (제이쿼리로 show/hide 예정) -->
+                            <ul><!-- ul : 이미지 썸네일 3개를 묶음 -->
+                                <li><!-- li : 각 이미지 항목 -->
+                                    <a href="#"><img src="IMG/g1.png" alt="갤러리 1" /></a>
+                                </li>
+
+                                <li>
+                                    <a href="#"><img src="IMG/g2.png" alt="갤러리 2" /></a>
+                                </li>
+
+                                <li>
+                                    <a href="#"><img src="IMG/g3.png" alt="갤러리 3" /></a>
+                                </li>
+                            </ul>
+                        </section>
                     </li>
                 </ul>
-            </nav>
-        </div>
-    </header>
+            </article>
 
 
-    <section class="slide">
-        <ul>
-            <li class="s1">
-                <a href="#">
-                    <h2>대한은행과 함께하는<br>ESG 캠핑 이벤트</h2>
+
+
+            <article class="con2"><!-- 📌 배너 -->
+                <h2>배너</h2><!-- h2 : 탭 제목 -->
+                <a href="#"><!--a : 클릭 가능한 영역 -->
+                    <h2>🎯 투돼지를 잡아라!🎯<br/><!--h2 : 메인 배너 제목 br: 줄띄움 -->
+
+                        <span>외화예금 신규가입 이벤트!!</span><!--span : 효과 추과-->
+                    </h2>
+
+                    <p>📌 대상: 대한은행 개인 고객</p>
                 </a>
-            </li>
-
-
-            <li class="s2">
-                <a href="#">
-                    <h2>스마트 폰으로 언제 어디서나<br>계좌 개설이 가능한 내 손안의 은행</h2>
-                </a>
-            </li>
-
-
-            <li class="s3">
-                <a href="#">
-                    <h2>[한정판] 연금리 5% 혜택<br>저희 대한은행과 함께하세요</h2>
-                </a>
-            </li>
-        </ul>
-    </section><!--슬라이드-->
-
-
-    <div class="contents"><!--notice 영역-->
-        <article class="con1"><!-- 🧱 article : 공지사항과 갤러리를 한 덩어리로 묶은 콘텐츠 구역 -->
-            <ul class="tabmenu"><!-- 📂 ul.tabmenu : 공지사항/갤러리 탭 버튼들을 묶은 리스트 -->
-
-                <!-- 📌 공지사항 탭(li 하나가 하나의 탭 역할) -->
-                <li class="on"> <!-- 'on' 클래스가 붙은 항목이 현재 활성화된 탭 -->
-                    <h2><a href="#">공지사항</a></h2><!-- h2 : 탭 제목 / a : 클릭 가능한 탭 버튼 -->
-
-                    <section class="notice tabcon"><!-- 📄 section.notice : 공지사항 내용이 표시될 구역 (제이쿼리로 show/hide 예정) -->
-
-                        <ul><!-- 📜 ul : 공지사항 목록 전체를 묶음 -->
-
-                            <li><!-- li : 공지사항 한 줄 (제목 + 날짜) -->
-                                <a href="#" class="pp">ATM 풀백 카드대출 전면 제한해제 이벤트</a><!-- a : 클릭 시 공지 상세페이지로 이동 -->
-                                <span class="date">2025-11-12</span><!-- span.date : 오른쪽 날짜 표시 -->
-                            </li>
-
-                            <li>
-                                <a href="#">금리변경 안내문(2025.10.08)</a>
-                                <span class="date">2025-10-30</span>
-                            </li>
-
-                            <li>
-                                <a href="#">NICE평가정보(주)의 시스템 작업으로 인한 일부 대출상품 일시중단 안내</a>
-                                <span class="date">2025-10-28</span>
-                            </li>
-
-                            <li>
-                                <a href="#">대한은행과 함께하는 '우수 중소기업 탐방' 프로그램 참가 안내</a>
-                                <span class="date">2025-10-17</span>
-                            </li>
-                        </ul>
-                    </section>
-                </li>
-
-                <li><!-- 📌 갤러리 탭 -->
-                    <h2><a href="#">갤러리</a></h2><!-- h2 : 탭 제목 / a : 클릭 가능한 탭 버튼 -->
-
-                    <section class="gall tabcon"><!-- 📸 section.gall : 갤러리 내용 구역 (제이쿼리로 show/hide 예정) -->
-                        <ul><!-- ul : 이미지 썸네일 3개를 묶음 -->
-                            <li><a href="#"><img src="IMG/g1.png" alt="갤러리 1"></a></li><!-- li : 각 이미지 항목 -->
-                            <li><a href="#"><img src="IMG/g2.png" alt="갤러리 2"></a></li>
-                            <li><a href="#"><img src="IMG/g3.png" alt="갤러리 3"></a></li>
-                        </ul>
-                    </section>
-                </li>
-            </ul>
-        </article>
+            </article>
 
 
 
-        <article class="con2"><!-- 📌 배너 -->
-            <h2>배너</h2><!-- h2 : 탭 제목 -->
-            <a href="#"><!--a : 클릭 가능한 영역 -->
-                <h2>🎯 투돼지를 잡아라! 🎯<br><!--h2 : 메인 배너 제목 br: 줄띄움 -->
-                    <span>외화예금 신규가입 이벤트!!</span><!--span : 효과 추과-->
-                </h2>
-
-                <p>📌 대상: 대한은행 개인 고객</p>
-            </a>
-        </article>
+            <article class="con3"><!-- 바로가기 -->
+                <h2>바로가기</h2><!-- h2 : 탭 제목 -->
 
 
-        <article class="con3"><!-- 바로가기 -->
-            <h2>바로가기</h2><!-- h2 : 탭 제목 -->
-            <ul><!--3가지 바로가기 아이콘과 아이콘 명을 묶은 영역 -->
-                <li><!--각각의 바로가기 아이콘과 아이콘 명을 묶은 영역 -->
-                    <a href="#"><!--a : 클릭 가능한 영역 -->
-                        <p><img src="IMG/ico1.png" alt="Home"></p><!--p: 아이콘 배경 img: 아이콘 이미지 -->
-                        <span>홈</span><!--아이콘 명-->
-                    </a>
-                </li>
+                <ul><!--3가지 바로가기 아이콘과 아이콘 명을 묶은 영역 -->
 
-                <li>
-                    <a href="#">
-                        <p><img src="IMG/ico2.png" alt="Account Transfer"></p>
-                        <span>계좌이체</span>
-                    </a>
-                </li>
+                    <li><!--각각의 바로가기 아이콘과 아이콘 명을 묶은 영역 -->
+                        <a href="#"><!--a : 클릭 가능한 영역 -->
+                            <p><img src="IMG/ico1.png" alt="Home" /></p><!--p: 아이콘 배경 img: 아이콘 이미지 -->
+                            <span>홈</span><!--아이콘 명-->
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="#">
-                        <p><img src="IMG/ico3.png" alt="Account Inquiry"></p>
-                        <span>계좌조회</span>
-                    </a>
-                </li>
-            </ul>
+                    <li>
+                        <a href="#">
+                            <p><img src="IMG/ico2.png" alt="Account Transfer" /></p>
+                            <span>계좌이체</span>
+                        </a>
+                    </li>
 
-        </article>
-    </div>
+                    <li>
+                        <a href="#">
+                            <p><img src="IMG/ico3.png" alt="Account Inquiry" /></p>
+                            <span>계좌조회</span>
+                        </a>
+                    </li>
 
-
-
-    <footer>
-        <div class="inner"><!--실제 작업 영역-->
-            <p class="flogo"><img src="img/logo.png" alt="대한은행"></p>
-
-            <div>
-                <ul class="fmenu">
-                    <li><a href="#">개인정보 처리방침</a></li>
-                    <li><a href="#">전자민원접수(칭찬.불만)</a></li>
-                    <li><a href="#">보호금융상품등록부</a></li>
-                    <li><a href="#">권익위 부패.공익신고</a></li>
-                    <li><a href="#">상품공시실</a></li>
-                    <li><a href="#">채용안내</a></li>
                 </ul>
-                <p class="copy">
-                    Copyright 2025. Leeminiclasss All rights reserved.
-                </p>
-            </div>
+            </article>
         </div>
-    </footer>
 
-</div>
+
+
+        <footer>
+            <div class="inner"><!--실제 작업 영역-->
+                <p class="flogo"><img src="img/logo.png" alt="대한은행" /></p>
+
+                <div>
+
+                    <ul class="fmenu">
+                        <li><a href="#">개인정보 처리방침</a></li>
+                        <li><a href="#">전자민원접수(칭찬.불만)</a></li>
+                        <li><a href="#">보호금융상품등록부</a></li>
+                        <li><a href="#">권익위 부패.공익신고</a></li>
+                        <li><a href="#">상품공시실</a></li>
+                        <li><a href="#">채용안내</a></li>
+                    </ul>
+
+
+                    <p class="copy">Copyright 2025. Leeminiclasss All rights reserved.</p>
+                </div>
+
+
+            </div>
+        </footer>
+
+        <div class="popup">
+            <ul>
+                <h2>
+                    <img src="IMG/logo.png" alt="대한은행"><br>
+                    <span>App 서비스 출시 완료</span>
+                </h2>
+                <p>보다 쉽게 사용가능한<br>대한은행 App 서비스 함께 알아보기</p>
+                <div class="button"><button>자세히보기</button></div>
+            </ul>
+        </div>
+
+
+    </div>
 </body>
 </html>
