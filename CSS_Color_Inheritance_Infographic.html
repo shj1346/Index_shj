@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>CSS color 상속 흐름 인포그래픽 (상속·단절·inherit 비교)</title>
+<style>
+body{
+  font-family:"Pretendard","Noto Sans KR",sans-serif;
+  background:#fff;
+  color:#222;
+  margin:5px;
+}
+h1{
+  text-align:center;
+  color:#2f66ba;
+  font-size:23px;
+  border-bottom:2px solid #2f66ba;
+  padding-bottom:4px;
+}
+h2{
+  color:#2f66ba;
+  font-size:20px;
+  border-left:5px solid #2f66ba;
+  padding-left:10px;
+  margin-top:5px;
+}
+.flex{
+  display:flex;
+  gap:25px;
+  justify-content:space-between;
+  margin-top:5px;
+}
+.box{
+  flex:1;
+  border:1px solid #ccc;
+  border-radius:10px;
+  padding:10px;
+  background:#fdfdfd;
+}
+h3{
+  background:#2f66ba;
+  color:#fff;
+  padding:6px;
+  border-radius:5px;
+  font-size:15px;
+  text-align:center;
+}
+.demo{
+  border:1px dashed #aaa;
+  border-radius:8px;
+  padding:12px;
+  margin-top:10px;
+  min-height:120px;
+  line-height:1.6;
+  font-size:14px;
+}
+p{
+  margin-top:10px;
+  font-size:14px;
+}
+.note{
+  margin-top:10px;
+  background:#eaf2ff;
+  border-left:4px solid #2f66ba;
+  padding:12px 15px;
+  border-radius:6px;
+  font-size:14px;
+}
+pre{
+  background:#f6f8fa;
+  border-left:4px solid #2f66ba;
+  padding:12px;
+  font-family:"Consolas",monospace;
+  font-size:13px;
+  white-space:pre-wrap;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:20px;
+  font-size:14px;
+}
+th,td{
+  border:1px solid #ccc;
+  padding:8px;
+  text-align:center;
+}
+th{
+  background:#f3f6fa;
+  color:#2f66ba;
+}
+.footer{
+  text-align:center;
+  color:#777;
+  margin-top:10px;
+  font-size:13px;
+}
+.flowchart{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin:25px 0;
+  font-weight:bold;
+}
+.flowbox{
+  border:2px solid #2f66ba;
+  border-radius:10px;
+  padding:15px 25px;
+  text-align:center;
+  flex:1;
+  margin:0 5px;
+}
+.arrow{
+  font-size:22px;
+  color:#2f66ba;
+}
+.inherit{
+  background:#c8dcff;
+}
+.cut{
+  background:#ffd2d2;
+}
+.restore{
+  background:#d1ffc6;
+}
+</style>
+</head>
+<body>
+
+<h1>📘 CSS color 상속 흐름 인포그래픽</h1>
+
+<h2>1️⃣ 기본 개념</h2>
+<p>
+<code>color</code> 속성은 부모로부터 **상속(inherit)** 되는 대표적인 속성입니다.<br>
+하지만, <b>중간 요소가 color를 새로 정의하면 상속 흐름이 끊기게 됩니다.</b><br>
+이때 <code>color: inherit;</code>을 사용하면 다시 상속을 복원할 수 있습니다.
+</p>
+
+<h2>2️⃣ 시각 흐름도 (상속 → 단절 → 복원)</h2>
+<div class="flowchart">
+  <div class="flowbox inherit">body<br><small>color: #333;</small></div>
+  <div class="arrow">→</div>
+  <div class="flowbox cut">a<br><small>color: #000; (상속 단절)</small></div>
+  <div class="arrow">→</div>
+  <div class="flowbox restore">.date<br><small>color: inherit; (복원)</small></div>
+</div>
+
+<h2>3️⃣ 코드 예시</h2>
+<pre>
+/* 부모(body)에서 기본 텍스트 색 지정 */
+body {
+  color: #333;
+}
+
+/* 중간에서 상속 단절 (a가 직접 색을 지정함) */
+.notice a {
+  color: #000;
+}
+
+/* 형제(span.date)는 a의 영향으로 상속이 끊김 → 브라우저 기본(#000) 적용 */
+.date {
+  font-size: 13px;
+}
+
+/* 복원 방법: inherit */
+.date {
+  color: inherit;
+}
+</pre>
+
+<h2>4️⃣ 실제 시각 비교</h2>
+<div class="flex">
+  <div class="box">
+    <h3>① 정상 상속 (body → span)</h3>
+    <div class="demo" style="color:#333;">
+      <p>body (color:#333)</p>
+      <p style="margin-left:20px;">└ span.date → 상속된 색 <b style="color:inherit;">#333</b></p>
+    </div>
+    <p>🟩 기본적으로 자식은 부모의 color 속성을 그대로 상속받음</p>
+  </div>
+
+  <div class="box">
+    <h3>② 상속 단절 (a가 색 재정의)</h3>
+    <div class="demo">
+      <p style="color:#333;">body (color:#333)</p>
+      <p style="margin-left:20px;color:#000;">└ a (color:#000) → 상속 단절</p>
+      <p style="margin-left:40px;">└ span.date → 부모색 끊김 → 기본색(#000)</p>
+    </div>
+    <p>🟥 a 요소가 새로운 색을 지정하면 상속 흐름이 끊김</p>
+  </div>
+
+  <div class="box">
+    <h3>③ inherit으로 복원</h3>
+    <div class="demo">
+      <p style="color:#333;">body (color:#333)</p>
+      <p style="margin-left:20px;color:#000;">└ a (color:#000)</p>
+      <p style="margin-left:40px;color:inherit;">└ span.date (color: inherit) → 복원된 #333</p>
+    </div>
+    <p>🟢 <code>color: inherit;</code>을 적용하면 부모(body)의 색을 다시 받아올 수 있음</p>
+  </div>
+</div>
+
+<h2>5️⃣ 정리 표</h2>
+<table>
+<tr><th>상황</th><th>설명</th><th>결과 색상</th><th>비고</th></tr>
+<tr><td>body → span</td><td>기본 상속</td><td>#333</td><td>자연스러운 상속</td></tr>
+<tr><td>body → a(color:#000) → span</td><td>상속 단절</td><td>#000</td><td>a가 새로운 색 선언</td></tr>
+<tr><td>body → a(color:#000) → span(color:inherit)</td><td>inherit로 복원</td><td>#333</td><td>부모의 색상 재상속</td></tr>
+</table>
+
+<div class="note">
+✅ <b>핵심 요약</b><br>
+- <b>color</b>는 상속되는 속성이지만, 부모가 새로 색을 지정하면 하위 상속이 끊긴다.<br>
+- <b>color: inherit;</b>을 사용하면 중간 단절을 무시하고 상위의 색을 다시 불러올 수 있다.<br><br>
+💡 실무 팁: 테마 색을 body에 지정했다면, a나 span에도 <code>color: inherit;</code>을 주어 일관성 유지.
+</div>
+
+<div class="footer">
+© 2025 HTML/CSS Learning Poster — CSS color 상속 흐름 인포그래픽 (A4 학습용)
+</div>
+
+</body>
+</html>
