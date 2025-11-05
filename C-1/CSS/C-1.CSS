@@ -4,7 +4,7 @@ img{max-width: 100%; vertical-align: top;}
 a{text-decoration: none; color: inherit;}
 table{width:100%; border-collapse: collapse;}
 button{cursor: pointer;}
-body{background: #fff; color:#333; height: 100%; cursor: default;}
+body{background: #fff; color:#333; height: 100%; cursor: default;font-family:"Pretendard","Noto Sans KR",sans-serif;}
 
 
 /* [전체 감싸기] */
