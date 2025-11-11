@@ -12,20 +12,64 @@ body{background: #fff; color:#333; height: 100%; cursor: default;font-family:"Pr
 .top{height: 850px; background: #f3b1b1; display: flex;}
 
 
-footer{height: 100px; background: #afffac;}
+footer{height: 100px; background: #faeeac;}
 footer h2{width: 200px; height: 100px;} 
 
 
-header{width: 200px; background: #3de98a;}
+header{width: 200px; background: #faf7e7; padding: 0px;}
 
+nav{margin-top: 30px;}
+/* nav ul li{font-size: 18px; font-weight: bold;} */
+nav>ul>li>a{display: block; background: #94b9a3; padding: 8px 2px; color: #01160a; text-align: center; width: 150px; margin: auto; font-size: 15px; font-weight: 600;}
+nav>ul>li:hover>a,
+nav>ul>li>a:focus,
+nav>ul>li.on>a{background: #e9dfab; color: #a78d0d;font-size: 16.5px;}
+
+
+/* .sub{display: none;} */
+.sub>li>a{display: block; background: #fff;padding: 6px 2px; text-align: center; width: 150px; margin: auto; font-size: 13.5px; font-weight: 700;}
+.sub>li>a:hover,
+.sub>li>a:focus{background: #e7e1c4d3;color: #ad951a;font-size: 14.5px;}
+
+
+.spot{margin-top: 30px; text-align: center;}
+.spot a{font-size: 15px; }
+.spot a:first-child{border-right: 2px solid #333; padding-right: 5px;} */
 
 .contents{display: block; width: calc(100% - 200px);}
 
 
-.slide{height: 400px; background: #333;}
 
 
-.banner{height: 200px; background: #f3b1b1;}
 
 
-.con{height: 250px; background: #233a22;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.slide{height:400px;  position: relative;}
+.slide ul li{height: 400px; width:calc(100% - 200px); position: absolute; top:0; left:0; display: none;}
+.slide ul li a{display: block; height: 100%;} /* height:100% 삭제 */
+.slide ul li h2{margin-top:150px; margin-left: 300px; padding: 15px; background:#94b9a3; border-radius: 25px; width: 350px; text-align: center;position: absolute;}
+.slide ul li.s1{background: url(../IMG/s1.png) no-repeat center/cover; display: block;}
+.slide ul li.s2{background: url(../IMG/s2.png) no-repeat center/cover;}
+.slide ul li.s3{background: url(../IMG/s3.png) no-repeat center/cover;}
+
+
+.banner{height: 200px; background: #ebd4d4;}
+
+
+.con{height: 250px; background: #a6c0a6;}
