@@ -1,197 +1,190 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>공지사항/갤러리 탭 전환 학습용</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TabMenu Learning Guide (KR/EN)</title>
 
-    <!-- ✅ CSS 파일 내부 스타일로 작성 -->
-    <style>
-        /* ================================
-           📘 [1] 기본 탭 메뉴 전체 레이아웃
-        =================================== */
-        .con1 {
-            position: relative; /* 내부의 절대배치(tabcon)를 기준으로 삼음 */
-        }
+<style>
+/* =============================
+ 🎨 기본 설정 (A4 인쇄용)
+============================= */
+body {
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  margin: 40px;
+  line-height: 1.5;
+  color: #222;
+  background: #ffffff;
+}
+h1, h2 {
+  text-align: center;
+  color: #333;
+}
+code {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  display: block;
+  padding: 8px 12px;
+  margin: 10px 0;
+  font-family: Consolas, monospace;
+  font-size: 14px;
+  white-space: pre-wrap;
+}
 
-        .con1 > .tabmenu {
-            display: flex; /* 탭 버튼들(li)을 가로로 배치 */
-        }
+/* 색상 테마 */
+.html-tag { color: #a066c7; font-weight: 600; }
+.css-prop { color: #548ee7; font-weight: 600; }
+.js-func { color: #52b788; font-weight: 600; }
+.comment { color: #777; font-style: italic; }
 
-        .con1 > .tabmenu > li {
-            width: 150px;
-            cursor: pointer; /* 마우스 포인터 변경 */
-            transition: all 0.3s;
-        }
+/* 표 스타일 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0 25px 0;
+  font-size: 14px;
+}
+th, td {
+  border: 1px solid #bbb;
+  padding: 6px 8px;
+}
+th { background: #e9eef7; }
 
-        /* 🟣 마우스를 올렸을 때 스타일 */
-        .con1 > .tabmenu > li:hover {
-            background: #ffffff;
-            color: #9577a8;
-            border: 3px solid #9577a8;
-            border-bottom: 0px;
-            border-radius: 8px 8px 0 0;
-        }
-
-        /* 🟣 클릭된(활성화된) 탭(li.on) */
-        .con1 > .tabmenu > li.on {
-            background: #9577a8;
-            color: #ffffff;
-            border-radius: 8px 8px 0 0;
-        }
-
-        /* 🟣 각 탭의 제목 링크 스타일 (공지사항 / 갤러리) */
-        .con1 > .tabmenu > li > h2 > a {
-            display: block;
-            text-align: center;
-            height: 45px;
-            font-weight: bold;
-            font-size: 18px;
-            padding: 8px;
-            border-radius: 8px 8px 0 0;
-        }
-
-        /* 🟣 공지 / 갤러리 공통 콘텐츠 영역(tabcon) */
-        .con1 .tabcon {
-            position: absolute; /* 부모 .con1을 기준으로 배치 */
-            left: 0;
-            width: 300px;
-            height: 155px;
-        }
-
-        /* ================================
-           📘 [2] 공지사항 스타일 (.notice)
-        =================================== */
-        .notice {
-            padding-top: 5px;
-        }
-
-        .notice > ul {
-            padding: 0 8px; /* 좌우 여백 */
-        }
-
-        .notice li {
-            display: flex; /* 제목과 날짜를 한 줄로 배치 */
-            justify-content: space-between; /* 좌우 끝 정렬 */
-            align-items: center;
-            border-bottom: 2px solid #5a5a5a; /* 구분선 */
-        }
-
-        .notice a {
-            display: block;
-            width: 210px;
-            font-size: 13px;
-            padding: 4px;
-            color: #000000;
-            white-space: nowrap; /* 줄바꿈 방지 */
-            overflow: hidden; /* 넘치는 글자 숨김 */
-            text-overflow: ellipsis; /* ... 표시 */
-        }
-
-        .date {
-            color: #111;
-            font-size: 12.5px;
-            width: 80px;
-            text-align: left;
-            font-weight: 500;
-        }
-
-        /* ================================
-           📘 [3] 갤러리 영역 (.gall)
-        =================================== */
-        .gall {
-            display: flex; /* 이미지들을 가로로 배치 */
-            padding-top: 15px;
-            padding-left: 5px;
-            gap: 3px; /* 이미지 간격 */
-            display: none; /* ❗초기에는 숨김 (공지사항만 보이게) */
-        }
-
-        .gall > img {
-            border: 2px solid #332e2e;
-            width: 95px;
-            height: 120px;
-            border-radius: 15px;
-        }
-    </style>
+/* 구분선 */
+.section {
+  border-top: 3px solid #aaa;
+  margin-top: 25px;
+  padding-top: 15px;
+}
+</style>
 </head>
 
 <body>
-    <!-- ===============================
-         📘 [4] HTML 구조
-    ==================================== -->
-    <article class="con1"> <!-- article : 공지사항/갤러리를 한 덩어리 콘텐츠 영역으로 묶음 -->
-        <ul class="tabmenu"> <!-- ul.tabmenu : 탭(공지사항/갤러리) 목록 -->
-            
-            <!-- 🔹 첫 번째 탭 - 공지사항 -->
-            <li class="on"> <!-- 현재 활성화된 탭(on 클래스) -->
-                <h2><a href="#">공지사항</a></h2>
-                <section class="notice tabcon"> <!-- tabcon : 제이쿼리로 제어 대상 -->
-                    <ul>
-                        <li>
-                            <a href="#" class="pp">★(중요) 해운대 빛축제 관련 M1중단 알림</a>
-                            <span class="date">2025-10-29</span>
-                        </li>
-                        <li>
-                            <a href="#">해운대 빛축제 관련 버스킹존 안내</a>
-                            <span class="date">2025-10-21</span>
-                        </li>
-                        <li>
-                            <a href="#">★(중요) 버스킹존 일시 중단 일정 알림</a>
-                            <span class="date">2025-10-17</span>
-                        </li>
-                        <li>
-                            <a href="#">행사 조기 종료에 따른 버스킹존 이용안내 (09.12~14)</a>
-                            <span class="date">2025-09-09</span>
-                        </li>
-                        <li>
-                            <a href="#">2025년 해수욕장 개장기간 수질 조사결과 (4차)</a>
-                            <span class="date">2025-09-09</span>
-                        </li>
-                    </ul>
-                </section>
-            </li>
+<h1>📘 탭 전환 구조 완전 해설 교재<br><small>(Tab Menu Interactive Guide / KR + EN)</small></h1>
 
-            <!-- 🔹 두 번째 탭 - 갤러리 -->
-            <li>
-                <h2><a href="#">갤러리</a></h2>
-                <section class="gall tabcon">
-                    <img src="IMG/g1.png" alt="갤러리 1">
-                    <img src="IMG/g2.png" alt="갤러리 2">
-                    <img src="IMG/g3.png" alt="갤러리 3">
-                </section>
-            </li>
+<p>이 문서는 <b>공지사항 / 갤러리 탭 전환 기능</b>을 HTML, CSS, JS 구조별로 상세히 해설한 학습용 교재입니다.<br>
+시맨틱 구조, Flexbox 배치, jQuery 동작 순서를 한눈에 이해할 수 있습니다.</p>
 
-        </ul>
-    </article>
+<div class="section">
+<h2>1️⃣ HTML Structure (HTML 구조)</h2>
+<code>
+<span class="html-tag">&lt;article class="con1"&gt;</span> 
+  <span class="comment">&lt;!-- 콘텐츠 덩어리(Article): 공지사항/갤러리 묶음 (Independent content section) --&gt;</span>
+  <span class="html-tag">&lt;ul class="tabmenu"&gt;</span>
+    <span class="comment">&lt;!-- 탭 버튼 목록 (Tab button list) --&gt;</span>
+    <span class="html-tag">&lt;li class="on"&gt;</span>
+      <span class="html-tag">&lt;h2&gt;&lt;a href="#"&gt;공지사항 (Notice)&lt;/a&gt;&lt;/h2&gt;</span>
+      <span class="html-tag">&lt;section class="notice tabcon"&gt;</span>
+        <span class="comment">&lt;!-- 공지사항 콘텐츠 (Tab content area) --&gt;</span>
+        <span class="html-tag">&lt;ul&gt;</span>
+          <span class="html-tag">&lt;li&gt;</span>
+            <span class="html-tag">&lt;a href="#" class="pp"&gt;</span>★(중요) 해운대 빛축제 관련 M1중단 알림<span class="html-tag">&lt;/a&gt;</span>
+            <span class="html-tag">&lt;span class="date"&gt;</span>2025-10-29<span class="html-tag">&lt;/span&gt;</span>
+          <span class="html-tag">&lt;/li&gt;</span>
+          ...
+        <span class="html-tag">&lt;/ul&gt;</span>
+      <span class="html-tag">&lt;/section&gt;</span>
+    <span class="html-tag">&lt;/li&gt;</span>
+    <span class="html-tag">&lt;li&gt;</span>
+      <span class="html-tag">&lt;h2&gt;&lt;a href="#"&gt;갤러리 (Gallery)&lt;/a&gt;&lt;/h2&gt;</span>
+      <span class="html-tag">&lt;section class="gall tabcon"&gt;</span>
+        <span class="html-tag">&lt;img src="IMG/g1.png" alt="갤러리 1"&gt;</span>
+        <span class="html-tag">&lt;img src="IMG/g2.png" alt="갤러리 2"&gt;</span>
+        <span class="html-tag">&lt;img src="IMG/g3.png" alt="갤러리 3"&gt;</span>
+      <span class="html-tag">&lt;/section&gt;</span>
+    <span class="html-tag">&lt;/li&gt;</span>
+  <span class="html-tag">&lt;/ul&gt;</span>
+<span class="html-tag">&lt;/article&gt;</span>
+</code>
+<p><b>설명:</b> <code>&lt;article&gt;</code>는 독립적인 콘텐츠 묶음이며, 내부에 <code>&lt;ul&gt;&lt;li&gt;</code> 구조로 두 개의 탭(공지/갤러리)을 만듭니다. <br>
+각 <code>section.tabcon</code>은 클릭 시 jQuery로 show/hide 됩니다.</p>
+</div>
 
-    <!-- ===============================
-         📘 [5] jQuery 스크립트
-    ==================================== -->
-    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
-    <script>
-        $(function() { // 문서가 완전히 로딩된 후 실행
-            // 🔹 탭메뉴 클릭 이벤트
-            $(".tabmenu > li").click(function() {
+<div class="section">
+<h2>2️⃣ CSS Style (CSS 스타일)</h2>
+<code>
+.con1 &gt; .tabmenu { <span class="css-prop">display</span>: flex; } 
+<span class="comment">/* 탭 버튼들을 가로로 정렬 (Display tabs horizontally) */</span>
 
-                // 1️⃣ 모든 탭(li)에서 'on' 클래스 제거 (비활성화)
-                $(".tabmenu > li").removeClass("on");
+.con1 &gt; .tabmenu &gt; li.on {
+  <span class="css-prop">background</span>: #9577a8;
+  <span class="css-prop">color</span>: #fff;
+  <span class="css-prop">border-radius</span>: 8px 8px 0 0;
+}
+<span class="comment">/* 클릭된 탭(on 클래스)에 배경과 글자색 지정 (Active tab style) */</span>
 
-                // 2️⃣ 클릭한 탭에만 'on' 클래스 추가 (활성화)
-                $(this).addClass("on");
+.notice li {
+  <span class="css-prop">display</span>: flex;
+  <span class="css-prop">justify-content</span>: space-between;
+}
+<span class="comment">/* 공지사항 제목과 날짜를 양쪽 정렬 (Align title/date horizontally) */</span>
 
-                // 3️⃣ 현재 클릭한 li의 순서(번호)를 구함
-                var t = $(this).index();
+.gall { <span class="css-prop">display</span>: none; }
+<span class="comment">/* 갤러리 영역은 초기 숨김 (Hide gallery initially) */</span>
+</code>
+<p><b>요약:</b> Flexbox는 li 요소를 가로 배치하고, <code>.on</code> 클래스는 클릭 시 시각적으로 구분합니다.</p>
+</div>
 
-                // 4️⃣ 모든 탭 내용 숨김
-                $(".tabcon").hide();
+<div class="section">
+<h2>3️⃣ JavaScript (jQuery) Logic</h2>
+<code>
+$(function(){ <span class="comment">// 문서가 모두 로드되면 실행 (Run after DOM ready)</span>
 
-                // 5️⃣ 클릭한 탭 순서에 해당하는 콘텐츠만 보이기
-                $(".tabcon").eq(t).show();
+  $(".tabmenu&gt;li").click(function(){
+    $(".tabmenu&gt;li").removeClass("on");
+    $(this).addClass("on");
+    var t = $(this).index();
+    $(".tabcon").hide();
+    $(".tabcon").eq(t).show();
+    return false;
+  });
 
-                return false; // 링크 이동(#) 방지
-            });
-        });
-    </script>
+});
+</code>
+
+<p>✅ <b>코드 설명 (Code Explanation)</b></p>
+<ul>
+  <li><b>$(function(){...})</b> → 문서가 준비되면 자동 실행 (Document ready)</li>
+  <li><b>.click()</b> → 클릭 이벤트 감지 (Detect click event)</li>
+  <li><b>.removeClass('on')</b> → 모든 탭에서 'on' 클래스 제거 (Deactivate all tabs)</li>
+  <li><b>.addClass('on')</b> → 클릭한 탭만 활성화 (Activate clicked tab)</li>
+  <li><b>.index()</b> → 클릭한 li의 순서값(0,1) 반환 (Get index number)</li>
+  <li><b>.eq(n)</b> → n번째 요소 선택 (Select nth element)</li>
+  <li><b>.show() / .hide()</b> → 콘텐츠 표시/숨김 (Show/Hide content)</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>4️⃣ Execution Flow (동작 순서)</h2>
+<pre>
+🧭 사용자가 탭 클릭 (User clicks tab)
+→ 모든 li의 on 제거 (Remove on from all li)
+→ 클릭한 li에 on 추가 (Add on to selected li)
+→ 클릭한 li의 index 번호 확인 (Get index)
+→ 모든 tabcon 숨김 (Hide all tabcon)
+→ index 순서에 맞는 tabcon만 show (Display selected tabcon)
+</pre>
+</div>
+
+<div class="section">
+<h2>5️⃣ Tag Reference (태그 요약표)</h2>
+<table>
+<tr><th>태그 (Tag)</th><th>영문 명칭</th><th>설명 (Description)</th></tr>
+<tr><td>&lt;article&gt;</td><td>Article</td><td>독립적인 콘텐츠 묶음 (Independent section of content)</td></tr>
+<tr><td>&lt;section&gt;</td><td>Section</td><td>내용 구획 (Content area division)</td></tr>
+<tr><td>&lt;ul&gt;</td><td>Unordered List</td><td>순서 없는 목록 (Group of list items)</td></tr>
+<tr><td>&lt;li&gt;</td><td>List Item</td><td>목록 항목 (Each element in list)</td></tr>
+<tr><td>&lt;a&gt;</td><td>Anchor</td><td>링크(클릭 가능한 요소)</td></tr>
+<tr><td>&lt;span&gt;</td><td>Span</td><td>짧은 텍스트나 날짜용 인라인 컨테이너</td></tr>
+</table>
+</div>
+
+<hr>
+<p style="text-align:center; font-size:13px; color:#555;">
+© 2025 TabMenu Learning Guide (KR/EN Edition) — Designed for Educational Use
+</p>
+
 </body>
 </html>
+
