@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항/갤러리 탭 전환 학습용</title>
+
+    <!-- ✅ CSS 파일 내부 스타일로 작성 -->
+    <style>
+        /* ================================
+           📘 [1] 기본 탭 메뉴 전체 레이아웃
+        =================================== */
+        .con1 {
+            position: relative; /* 내부의 절대배치(tabcon)를 기준으로 삼음 */
+        }
+
+        .con1 > .tabmenu {
+            display: flex; /* 탭 버튼들(li)을 가로로 배치 */
+        }
+
+        .con1 > .tabmenu > li {
+            width: 150px;
+            cursor: pointer; /* 마우스 포인터 변경 */
+            transition: all 0.3s;
+        }
+
+        /* 🟣 마우스를 올렸을 때 스타일 */
+        .con1 > .tabmenu > li:hover {
+            background: #ffffff;
+            color: #9577a8;
+            border: 3px solid #9577a8;
+            border-bottom: 0px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        /* 🟣 클릭된(활성화된) 탭(li.on) */
+        .con1 > .tabmenu > li.on {
+            background: #9577a8;
+            color: #ffffff;
+            border-radius: 8px 8px 0 0;
+        }
+
+        /* 🟣 각 탭의 제목 링크 스타일 (공지사항 / 갤러리) */
+        .con1 > .tabmenu > li > h2 > a {
+            display: block;
+            text-align: center;
+            height: 45px;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 8px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        /* 🟣 공지 / 갤러리 공통 콘텐츠 영역(tabcon) */
+        .con1 .tabcon {
+            position: absolute; /* 부모 .con1을 기준으로 배치 */
+            left: 0;
+            width: 300px;
+            height: 155px;
+        }
+
+        /* ================================
+           📘 [2] 공지사항 스타일 (.notice)
+        =================================== */
+        .notice {
+            padding-top: 5px;
+        }
+
+        .notice > ul {
+            padding: 0 8px; /* 좌우 여백 */
+        }
+
+        .notice li {
+            display: flex; /* 제목과 날짜를 한 줄로 배치 */
+            justify-content: space-between; /* 좌우 끝 정렬 */
+            align-items: center;
+            border-bottom: 2px solid #5a5a5a; /* 구분선 */
+        }
+
+        .notice a {
+            display: block;
+            width: 210px;
+            font-size: 13px;
+            padding: 4px;
+            color: #000000;
+            white-space: nowrap; /* 줄바꿈 방지 */
+            overflow: hidden; /* 넘치는 글자 숨김 */
+            text-overflow: ellipsis; /* ... 표시 */
+        }
+
+        .date {
+            color: #111;
+            font-size: 12.5px;
+            width: 80px;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        /* ================================
+           📘 [3] 갤러리 영역 (.gall)
+        =================================== */
+        .gall {
+            display: flex; /* 이미지들을 가로로 배치 */
+            padding-top: 15px;
+            padding-left: 5px;
+            gap: 3px; /* 이미지 간격 */
+            display: none; /* ❗초기에는 숨김 (공지사항만 보이게) */
+        }
+
+        .gall > img {
+            border: 2px solid #332e2e;
+            width: 95px;
+            height: 120px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ===============================
+         📘 [4] HTML 구조
+    ==================================== -->
+    <article class="con1"> <!-- article : 공지사항/갤러리를 한 덩어리 콘텐츠 영역으로 묶음 -->
+        <ul class="tabmenu"> <!-- ul.tabmenu : 탭(공지사항/갤러리) 목록 -->
+            
+            <!-- 🔹 첫 번째 탭 - 공지사항 -->
+            <li class="on"> <!-- 현재 활성화된 탭(on 클래스) -->
+                <h2><a href="#">공지사항</a></h2>
+                <section class="notice tabcon"> <!-- tabcon : 제이쿼리로 제어 대상 -->
+                    <ul>
+                        <li>
+                            <a href="#" class="pp">★(중요) 해운대 빛축제 관련 M1중단 알림</a>
+                            <span class="date">2025-10-29</span>
+                        </li>
+                        <li>
+                            <a href="#">해운대 빛축제 관련 버스킹존 안내</a>
+                            <span class="date">2025-10-21</span>
+                        </li>
+                        <li>
+                            <a href="#">★(중요) 버스킹존 일시 중단 일정 알림</a>
+                            <span class="date">2025-10-17</span>
+                        </li>
+                        <li>
+                            <a href="#">행사 조기 종료에 따른 버스킹존 이용안내 (09.12~14)</a>
+                            <span class="date">2025-09-09</span>
+                        </li>
+                        <li>
+                            <a href="#">2025년 해수욕장 개장기간 수질 조사결과 (4차)</a>
+                            <span class="date">2025-09-09</span>
+                        </li>
+                    </ul>
+                </section>
+            </li>
+
+            <!-- 🔹 두 번째 탭 - 갤러리 -->
+            <li>
+                <h2><a href="#">갤러리</a></h2>
+                <section class="gall tabcon">
+                    <img src="IMG/g1.png" alt="갤러리 1">
+                    <img src="IMG/g2.png" alt="갤러리 2">
+                    <img src="IMG/g3.png" alt="갤러리 3">
+                </section>
+            </li>
+
+        </ul>
+    </article>
+
+    <!-- ===============================
+         📘 [5] jQuery 스크립트
+    ==================================== -->
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+    <script>
+        $(function() { // 문서가 완전히 로딩된 후 실행
+            // 🔹 탭메뉴 클릭 이벤트
+            $(".tabmenu > li").click(function() {
+
+                // 1️⃣ 모든 탭(li)에서 'on' 클래스 제거 (비활성화)
+                $(".tabmenu > li").removeClass("on");
+
+                // 2️⃣ 클릭한 탭에만 'on' 클래스 추가 (활성화)
+                $(this).addClass("on");
+
+                // 3️⃣ 현재 클릭한 li의 순서(번호)를 구함
+                var t = $(this).index();
+
+                // 4️⃣ 모든 탭 내용 숨김
+                $(".tabcon").hide();
+
+                // 5️⃣ 클릭한 탭 순서에 해당하는 콘텐츠만 보이기
+                $(".tabcon").eq(t).show();
+
+                return false; // 링크 이동(#) 방지
+            });
+        });
+    </script>
+</body>
+</html>
