@@ -6,7 +6,7 @@ table{width:100%; border-collapse: collapse;}
 button{cursor: pointer;}
 body{background: #fff; color:#333; height: 100%; cursor: default;font-family:"Pretendard","Noto Sans KR",sans-serif;}
 
-.wrap{height: 950px; background: #333;}
+.wrap{height: 950px; background: #333; position: relative;}
 
 .top{height: 850px; background: #f3b1b1; display: flex;}
 
@@ -16,7 +16,7 @@ header{width: 200px; background: #faf7e7;}
 
 /* Main menu 구역 */
 nav{margin-top: 30px;}
-nav>ul>li>a{display: block; background: #94b9a3; padding: 8px 2px; color: #01160a; text-align: center; width: 150px; margin: auto; font-size: 15px; font-weight: 600;}/* 메인 메뉴 만 수정 */
+nav>ul>li>a{display: block; background: #94b9a3; padding: 8px 2px; color: #01160a; text-align: center; width: 150px; margin: auto; font-size: 15px; font-weight: 600;}/* 메인메뉴 만 수정 */
 nav>ul>li:hover>a,
 nav>ul>li>a:focus,
 nav>ul>li.on>a{background: #e9dfab; color: #a78d0d;font-size: 16.5px;}
@@ -24,7 +24,7 @@ nav>ul>li.on>a{background: #e9dfab; color: #a78d0d;font-size: 16.5px;}
 
 /* Sub menu 구역 */
 .sub{display: none;}
-.sub>li>a{display: block; background: #fff;padding: 6px 2px; text-align: center; width: 150px; margin: auto; font-size: 13.5px; font-weight: 700;}/* 서브 메뉴 만 수정 */
+.sub>li>a{display: block; background: #fff;padding: 6px 2px; text-align: center; width: 150px; margin: auto; font-size: 13.5px; font-weight: 700;}/* 서브메뉴 만 수정 */
 .sub>li>a:hover,
 .sub>li>a:focus{background: #e7e1c4d3;color: #ad951a;font-size: 14.5px;}
 
@@ -36,128 +36,43 @@ nav>ul>li.on>a{background: #e9dfab; color: #a78d0d;font-size: 16.5px;}
 
 
 /* 오른쪽 전체 [Slide+Banner+Con(Notice+gallery)]-Footer(하단) 제외 */
-.contents{display: block; width: calc(100% - 200px);}
+.contents{ width: calc(100% - 200px);}
 
 /* Slide 구역 */
-.slide{height:400px;  background: #94b9a3; position: relative; overflow: hidden;}
+.slide{height:400px;  background: #94b9a3; position: relative;overflow: hidden;}
 .slide ul{position: absolute; top:0; left:0; height: 1200px; width:100%;}
-.slide ul li{width: 100%; height: 400px;}
+.slide ul li{width: 100%; height: 400px; position: relative;}
 .slide ul li a{display: block; height: 100%;}
 .slide ul li.s1{background: url(../IMG/s1.png) no-repeat center/cover;}
 .slide ul li.s2{background: url(../IMG/s2.png) no-repeat center/cover;}
 .slide ul li.s3{background: url(../IMG/s3.png) no-repeat center/cover;}
-.slide ul li a h2{color: #fff; font-size: 28px; padding: 10px; background: #01160aa8; width: 650px; border-radius: 0 0 50px 0; border: 3px solid #ffffff; line-height: 35px;}
-.slide p{font-size: 18px; color: #ad951a; padding: 15px;}
+.slide ul li .text{position: absolute; bottom: 100px; left: 30px; color: #fff;}
+.slide ul li .text h2{font-size: 32px; text-shadow: 3px 3px 5px rgba(0,0,0,.8); margin-bottom: 10px;}
+.slide ul li .text h2 span{color: #52ec6c;}
+.slide ul li .text p{font-size: 16px; text-shadow: 3px 3px 5px rgba(0,0,0,.8);}
+/* .slide ul li a h2{color: #fff; font-size: 28px; padding: 10px; background: #01160aa8; width: 650px; border-radius: 0 0 50px 0; border: 3px solid #ffffff; line-height: 35px;}
+.slide p{font-size: 18px; color: #ad951a; padding: 15px;} */
+
+
+
+
+
 
 /* Banner 구역 */
-.banner{height: 200px; background: #caecd8;}
-.banner a{display: flex; gap: 120px; margin-left: 150px; padding: 15px;}
-.banner .text{flex-grow: 1; line-height: 30px; padding-top: 10px;}
+.banner{height: 200px; background: #caecd8; display: flex; padding: 10px;}
+.banner a{display: flex; }
+.banner .photo{flex-basis: 200px; border-radius: 15px; overflow: hidden; height: 180px; margin-left: 200px;}
+.banner .text{ text-align: left; margin-left: 180px; margin-top: 10px; line-height: 30px; flex-grow: 1;}
+.banner .arrow{margin-left: 180px; padding: 20px;}
+.banner .text strong{color: #dd5d07; font-size: 17px;}
 .banner .text span{font-weight: bold; font-size: 15px;}
 .banner .text span .ptext{font-size: 600; font-size: 13px; }
-.banner .text strong{color: #dd5d07; font-size: 17px;}
-.banner .photo img{width: 170px; border-radius: 8px; border: 3px solid #000000 ;}
-.banner .arrow img{padding: 20px; margin-right: 40px;}
+
+
 
 
 /* CON 영역 */
 .con {height: 250px; background: #ffffff; position: relative;}
-.tabmenu{display: flex; gap:8px; margin-left: 8px;}
-.tabmenu>li{width:150px; background: #5c8575; color:#fff;text-align: center;border-radius: 15px 15px 0 0;}
-.tabmenu>li.on{background: #6a9674;}
-.tabmenu>li>h2>a{display: block; padding: 10px; font-size: 20px;} 
-.tabcon{position: absolute; left: 0; width: 100%; background: #6a9674;}
-/* CON 영역-> NOTICE */
-/* 공지사항 리스트 li */
-.notice ul li {display:flex;
-    justify-content: space-between;
-    align-items:center;
-
-    /* 💡 li 전체 넓이는 부모(con)의 100% 안에서만 사용하도록 고정 */
-    width:100%;
-    box-sizing:border-box;
-
-    border-bottom:2px solid #ffffff;
-    padding: 6.7px 20px;
-    color:#000;
-    overflow:hidden; /* 넘치는 부분 숨김 */
-    white-space: nowrap;
-text-overflow:ellipsis;
-}
-
-/* 공지사항 제목(링크) */
-.notice ul li a {
-    flex:1;                  /* 💡 날짜(span) 제외 넓이 전부 차지 */
-    min-width:0;             /* 💡 flexbox의 오버플로우 문제 해결 필수 */
-    white-space:normal;      /* 💡 자동 줄바꿈 허용 */
-    word-break: break-all;   /* 💡 매우 긴 문장도 강제로 영역 내부에서 처리 */
-    color:#000;
-    text-decoration:none;
-    padding-right:10px;      /* 날짜와 간격 */
-}
-
-/* 날짜 */
-.notice .date {
-    white-space:nowrap;     /* 💡 날짜는 줄바꿈 금지 (디자인 유지) */
-    flex-shrink:0;          /* 💡 줄어들지 않도록 고정 */
-    font-size:15px;
-    color:#000;
-}
-
-/* CON 영역-> GALL*/
-/* 갤러리 전체를 con 영역 안에서 넘지 않도록 고정 */
-.gall {
-    display:none;
-    width:100%;
-    height:100%;
-    overflow:hidden; /* 💡 갤러리가 con 밖으로 나가지 못하게 막음 */
-    padding-top:10px;
-}
-
-/* ul이 부모 폭을 넘지 않도록 wrap 처리 */
-.gall ul {
-    display:flex;
-    flex-wrap:wrap;   /* 💡 화면이 줄면 자동 줄바꿈 */
-    gap:40px;         /* 💡 너무 큰 gap(150px) → 화면 줄었을 때 깨짐 */
-    justify-content:center;
-    width:100%;
-    height:100%;
-    box-sizing:border-box;
-    overflow:hidden;  /* 💡 UL 자체도 영역 밖으로 못 나가게 */
-}
-
-/* li도 넘치지 않도록 고정 폭/비율 설정 */
-.gall ul li {
-    width:250px;           /* 이미지 width와 동일하게 고정 */
-    flex-shrink:0;         /* 아이템 크기가 줄지 않도록 */
-    text-align:center;
-    box-sizing:border-box;
-}
-
-/* 이미지가 con 영역을 절대 밀어내지 못하도록 */
-.gall ul li img {
-    width:100%;           /* 💡 250px이지만 화면 줄면 유연하게 수축 */
-    max-width:250px;      /* 💡 원본 크기 이상 못 커짐 */
-    height:auto;
-    border-radius:15px;
-    border:3px solid #93aac0;
-}
-
-/* 텍스트 영역도 줄바꿈 허용 + 영역 넘김 방지 */
-.gall ul li div {
-    font-weight:bold; 
-    padding:3px; 
-    background:#a78d0d98; 
-    width:100%;             /* 💡 기존 margin-left 없이 정렬 안정화 */
-    max-width:120px;        /* 💡 텍스트 박스 넓이 고정 */
-    margin: 6px auto;       /* 💡 가운데 정렬 */
-    border-radius:8px; 
-    color:#000; 
-    font-size:15px; 
-    overflow:hidden;        /* 💡 텍스트가 박스 밖으로 못 나감 */
-    white-space:nowrap;
-    text-overflow:ellipsis; /* 💡 너무 길면 ... 처리 */
-}
 
 
 
@@ -167,11 +82,28 @@ text-overflow:ellipsis;
 .go p{font-weight: bold; margin-bottom: 5px; font-size: 14px; padding: 5px;}
 .go li:hover p{background: #a78d0dfd; border-radius: 8px; color: #fff;}
 .go img{width: 50px;}
-.go li{border-bottom: 2px dashed #01160a;  margin: 2px 10px; padding: 0 5px ;}
+.go li{border-bottom: 2px dashed #01160a;  margin: 2px 10px; }
 .go li:last-child{border-bottom: 0;}
 
 
+.notice{display: none;}
+.tabmenu{display: flex;}
+.tabmenu>li{width: 150px; background:#e7e1c4d3; color: #333; text-align: center;}
+.tabmenu>li>h2>a{display: block; padding: 10px; font-size: 18px;}
+.tabmenu>li.on{background: #9ac780;}
 
+.tabcon{position: absolute; width: 100%; left: 0; background: #9ac780; padding: 15px 10px;}
+
+.notice table th{text-align: left; padding-left: 20px; }
+.notice table tr{border-bottom: 2px solid #fff; height: 28px;}
+.notice table td{text-align: center;}
+
+.gall{display: none;}
+.gall ul{display: flex; gap:120px; justify-content: center;} 
+.gall ul li p{padding: 5px;}
+.gall ul li img{width: 130px; height: 130px; object-fit: cover;border-radius: 15px; border: 2px solid #fff;padding: 3px;}
+.gall ul li a div{font-weight: bold; font-size: 12.5px; width: 150px; background: #93aac0be; padding: 5px; border-radius: 8px; color: #000;}
+.gall ul li a:hover>div{border: 2px dashed #fff; background: #a78d0da9; color: #fff;}
 
 
 
@@ -187,3 +119,14 @@ footer span{font-weight: 600; line-height: 21px; font-size: 13px;margin-top: 5px
 .sns ul{display: flex; gap: 10px; margin-top: 25px;}
 .sns ul li img{width: 50px; height: 50px; padding: 5px; border: 3px dashed #93aac0; border-radius: 15px;}
 .sns ul li img:hover{background: #93aac0; border: 3px dashed #4f6357;}
+
+
+
+.popcon{background: url(../IMG/popup.png) no-repeat center/cover; width: 300px; height: 500px; position: absolute; top: 50px; left:250px; border-radius: 8px; }
+
+.popcon h2{ margin-top: 60px; font-size: 15px; text-align: center;}
+.popcon .poptext{text-align: center; margin-top: 15px; font-weight: bold; font-size: 30px; color: #f06b12;}
+.popcon .poptext p{color: #0d8d22;}
+.popcon .button{text-align: center; margin-top:250px;}
+button{font-size: 13px; padding: 5px 15px; font-weight: 600; background:#93aac0 ; border-radius: 8px; border: 2px solid #fff; color: #fff; }
+button:hover{background: #8abceb; color: #000; border: 2px solid #fff;}
