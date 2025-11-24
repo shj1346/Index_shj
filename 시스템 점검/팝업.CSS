@@ -1,0 +1,142 @@
+/* ========================================
+   전체 화면 고정 + 스크롤 제거
+========================================= */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: #324FA1;
+    font-family: 'Pretendard', sans-serif;
+}
+
+
+/* 실제 콘텐츠가 들어있는 래퍼 (원본 레이아웃 크기) */
+.popup-wrap {
+    margin: auto;
+    padding: 0 10%;
+    position: relative;
+ /* 안전 여백 */
+}
+
+
+
+
+
+
+
+/* ========================================
+   기존 .background 대신 이걸 사용
+========================================= */
+/* 내부 레이아웃 */
+.background {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    padding: 40px 30px;
+}
+
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* ========================================
+   타이틀
+========================================= */
+.warning-icon{
+    text-align: center;
+}
+.title {
+    font-size: 3vw;
+    color: #FFE600;
+    font-weight: 800;
+    margin-bottom: 2vh;
+    text-align: center;
+}
+
+.title span {
+    font-size: 2.5vw;
+    color: #fff;
+}
+
+/* =============================
+    서브 타이틀
+============================= */
+.subtitle {
+    font-size: 2vw;
+    color: #353F77;
+    margin-bottom: 2vh;
+}
+
+
+
+/* =============================
+   .blue-card
+============================= */
+.blue-card {
+    background: #4D65C8;
+    color: white;
+    padding: 1vh 2vw;
+    border-radius: 12px;
+    font-size: 1.5vw;
+    margin-bottom: 1.2vh;
+    text-align: left;
+    line-height: 0.5;
+    font-weight: 600;
+}
+
+.detail {
+    font-weight: 500;
+    font-size: 1.3vw;
+}
+
+.detail-s {
+    font-weight: 700;
+    color: #FFE600;
+}
+
+/* =============================
+    .white-box 박스
+============================= */
+
+.white-box {
+    background: #ffffff;
+    border-radius: 25px;
+    padding: 8px 40px 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.person-img {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.person-img img {
+    width: 300px;
+    max-width: 100%;
+}
+.logo img {
+    max-width: 230px;
+}
+
+/* =============================
+    안내 문구
+============================= */
+
+.desc {
+    margin-top: 3vh;
+    margin-bottom: 2vh;
+    font-size: 1.5vw;
+    color: #15182A;
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+
+
+
+
